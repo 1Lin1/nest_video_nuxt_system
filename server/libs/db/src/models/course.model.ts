@@ -8,6 +8,7 @@ import {Episode} from './episode.model'
 @modelOptions({
     schemaOptions:{
         timestamps:true,
+        toJSON:{virtuals:true},
     }
 })
 export class Course {
@@ -21,8 +22,16 @@ export class Course {
     @prop()
     cover:string
 
+    @ApiProperty({ description: '视频描述',example:'视频描述' })
+    @prop()
+    videoDescription:string
 
-    //参考课时model 课时为一个数组 @arrayProp为mongoose准备 下面为类型声明
-    @arrayProp({itemsRef:'Episode'})
-    episode:Ref<Episode>[]
+
+    //参考课时model 课时为一个数组 @arrayProp为mongoose准备 下面为类型声明  主键为course的id 外键是课时的course
+    @arrayProp({
+        ref:'Episode',
+        localField:'_id',
+        foreignField:'course',
+    })
+    episodes:Ref<Episode>[]
 }
