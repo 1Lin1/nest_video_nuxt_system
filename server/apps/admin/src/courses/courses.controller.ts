@@ -20,22 +20,31 @@ export class CoursesController {
   option(){
     return {
       title:'主课程列表',
-            page:false,
             align:'center',
             menuAlign:'center',
+            translate:false,//修改不转化 避免多$报错
             column:[
-            
                {
                 label:'视频标题',
-                prop:'name'
+                prop:'name',
+                search:true,//开启搜索
+                regex:true,//开启模糊查询
+                row:true,
               },
               {
                 label:'视频封面/文件',
-                prop:'cover'
+                prop:'cover',
+                type:'upload',
+                listType:'picture-img',
+                action:'upload', //上传接口
+                width:120,
+                height:120,
+                row:true,
               },
               {
                 label:'视频描述',
-                prop:'videoDescription'
+                prop:'videoDescription',
+                row:true
               },
             ]
     }

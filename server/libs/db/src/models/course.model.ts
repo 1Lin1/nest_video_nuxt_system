@@ -8,7 +8,7 @@ import {Episode} from './episode.model'
 @modelOptions({
     schemaOptions:{
         timestamps:true,
-        toJSON:{virtuals:true},
+        toJSON:{virtuals:true}, //使关联查询查得到
     }
 })
 export class Course {

@@ -8,9 +8,16 @@ import axios from 'axios'
 Vue.config.productionTip = false
 
 // 创建axios实例
-Vue.prototype.$http = axios.create({
+const http = axios.create({
   baseURL:'http://localhost:3001/api'
 })
+
+//请求接口
+Vue.prototype.$http = http
+
+//avue管理端请求上传相关
+Vue.prototype.$httpajax = http
+
 
 new Vue({
   router,

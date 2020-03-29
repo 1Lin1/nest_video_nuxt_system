@@ -58,7 +58,7 @@ export default class Main extends Vue {
        {
         title:'用户管理',
         items:[
-          {title:'用户',path:'/user'},
+          {title:'用户',path:'/users/list'},
         ]
       },
     ]
